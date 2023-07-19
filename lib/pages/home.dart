@@ -6,6 +6,8 @@ import 'package:intl/intl.dart';
 import '../models/timetable.dart';
 
 class TimetableScreen extends StatefulWidget {
+  const TimetableScreen({super.key});
+
   @override
   _TimetableScreenState createState() => _TimetableScreenState();
 }
@@ -55,7 +57,6 @@ class _TimetableScreenState extends State<TimetableScreen> {
             title: Text(item.course),
             subtitle: Text('${item.startTime} - ${item.endTime}'),
             // You can customize the ListTile with more information if needed
-            // For example, you can use `item.day`, `item.semester`, etc.
           );
         },
       ),
