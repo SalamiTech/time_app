@@ -28,8 +28,8 @@ class _TimetableScreenState extends State<TimetableScreen> {
     try {
       final response = await http.get(url);
       if (response.statusCode == 200) {
-        final jsonData = json.decode(response.body);
-        final items = jsonData['items'];
+        final jsonData = json.decode(response.body) as Map<String, dynamic>;
+        final items = jsonData['items'] as List<dynamic>;
         setState(() {
           timetableItems = items
               .map<TimetableItem>((item) => TimetableItem.fromJson(item))
@@ -57,6 +57,7 @@ class _TimetableScreenState extends State<TimetableScreen> {
             title: Text(item.course),
             subtitle: Text('${item.startTime} - ${item.endTime}'),
             // You can customize the ListTile with more information if needed
+            // For example, you can use `item.day`, `item.semester`, etc.
           );
         },
       ),
